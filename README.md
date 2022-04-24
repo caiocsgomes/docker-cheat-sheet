@@ -26,7 +26,7 @@ docker start imageid
 docker run image
 
 # run a container and open a terminal
-docker run -it python
+docker run -it python /bin/bash
 
 # run a container in a detached mode
 docker run -d image
@@ -37,3 +37,18 @@ docker container exec containerid command
 # get container data
 docker container inspect containerid
 ```
+
+## Difference CMD and ENTRYPOINT
+
+*ENTRYPOINT* is the command executed when the contianer starts.
+
+*CMD* is the argument passed to the entrypoint.
+
+For example, the next set of commands would run *python app.py*.
+
+```Dockerfile
+ENTRYPOINT ["python"]
+
+CMD ["app.py"]
+```
+
